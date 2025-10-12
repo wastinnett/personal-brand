@@ -137,7 +137,9 @@ nav {
 .hero-content p {
   font-size: 1.1rem;
   max-width: 600px;
-  margin: 0 auto 2rem;
+  width: 100%;
+  margin: 0 0 2rem 0;
+  text-align: left;
 }
 .btn {
   display: inline-block;
@@ -194,6 +196,13 @@ section#services h2 {
 }
 .service h3 {
   transition: color 0.3s;
+}
+
+.services-note {
+  max-width: 900px;
+  margin: 2rem auto 0 auto;
+  font-size: 1.1rem;
+  text-align: center;
 }
 
 /* Designed underline for key words */
