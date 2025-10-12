@@ -20,7 +20,7 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  background: var(--accent);
+  background-color: var(--accent);
   border-bottom: 1px solid #e6e6e6;
   display: flex;
   align-items: center;
@@ -33,7 +33,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: #f5f0e3;
+  font-color: #f5f0e3;
   font-weight: 600;
   transition: color 0.3s;
   display: flex;
