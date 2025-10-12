@@ -1,5 +1,6 @@
 :root {
-  --accent: #1e3f2f;
+  --accent: #257a06;
+  --accent-secondary: #d96f4b;
   --text: #323232;
   --background: #ffffff;
 }
@@ -37,6 +38,11 @@ nav a {
 nav a:hover {
   color: var(--accent);
 }
+/* Nav Link Active/Focus State */
+nav a:active,
+nav a:focus {
+  color: var(--accent-secondary);
+}
 
 /* Offset for fixed navbar */
 .hero,
@@ -72,8 +78,10 @@ nav a:hover {
   box-shadow: 0 0 0 rgba(0,0,0,0);
 }
 .btn:hover {
+  background-color: var(--accent-secondary);
+  box-shadow: 0 4px 10px rgba(217, 111, 75, 0.3);
+  color: #fff;
   transform: translateY(-3px);
-  box-shadow: 0 4px 10px rgba(37, 122, 6, 0.3);
 }
 
 /* SERVICES SECTION */
@@ -109,6 +117,11 @@ section#services h2 {
   color: var(--accent);
   font-family: 'Poppins', sans-serif;
   margin-bottom: 0.5rem;
+  transition: color 0.3s;
+}
+/* Service Card Title Hover */
+.service h3:hover {
+  color: var(--accent-secondary);
 }
 
 /* ABOUT SECTION */
@@ -167,6 +180,10 @@ section#services h2 {
   color: var(--accent);
   transform: scale(1.2);
 }
+/* Social Links: Instagram uses secondary accent on hover */
+.social-links a[href*="instagram"]:hover {
+  color: var(--accent-secondary);
+}
 
 /* FOOTER */
 footer {
@@ -177,6 +194,7 @@ footer {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
+  border-top: 4px solid var(--accent-secondary);
 }
 footer.visible {
   opacity: 1;
