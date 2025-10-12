@@ -186,14 +186,14 @@ section#services h2 {
 .service:hover {
   background: var(--accent);
   color: #f5f0e3;
+  transform: translateY(-15px);
   box-shadow: 0 8px 32px rgba(30, 63, 47, 0.2);
-  border-color: var(--accent-secondary);
 }
 .service:hover h3 {
-  color: #f5f0e3;
+  color: var(--accent-secondary);
 }
 .service h3 {
-  transition: color 0.3s;
+  transition: color 0.5s;
 }
 
 /* Designed underline for key words */
