@@ -1,5 +1,5 @@
 :root {
-  --accent: #257a06;
+  --accent: #1e3f2f;
   --accent-secondary: #d96f4b;
   --text: #323232;
   --background: #ffffff;
@@ -255,14 +255,14 @@ section#services h2 {
 
 /* FOOTER */
 footer {
-  background-color: #f7f7f7;
+  background-color: var(--accent);
+  color: #f5f0e3;
   text-align: center;
   padding: 2rem 1rem;
   font-size: 0.95rem;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
-  border-top: 4px solid var(--accent-secondary);
 }
 footer.visible {
   opacity: 1;
