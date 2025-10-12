@@ -5,7 +5,12 @@
   --background: #ffffff;
 }
 
+/* Selection highlight */
 ::selection {
+  background: var(--accent-secondary);
+  color: #f5f0e3;
+}
+::-moz-selection {
   background: var(--accent-secondary);
   color: #f5f0e3;
 }
@@ -19,54 +24,98 @@ body {
   scroll-behavior: smooth;
 }
 
-/* NAVIGATION */
+/* NAVIGATION BAR */
 nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background-color: var(--accent);
-  border-bottom: 1px solid #e6e6e6;
+  background: var(--accent);
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  padding: 1rem;
+  justify-content: space-between;
+  padding: 1rem 2rem;
   z-index: 10;
-  backdrop-filter: blur(5px);
 }
-
-nav a {
-  text-decoration: none;
-  color: #f5f0e3 !important;
-  font-weight: 600;
-  transition: color 0.3s;
-  display: flex;
-  align-items: center;
-}
-
-nav a:hover {
-  color: var(--accent-secondary) !important;
-}
-
-nav a.nav-logo {
-  padding: 0;
-  margin-right: 1.5rem;
-  background: none;
-  box-shadow: none;
-}
-
-nav a.nav-logo img {
+.nav-logo img {
   height: 40px;
   width: auto;
   display: block;
 }
 
-nav a:active,
-nav a:focus {
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+.nav-links a {
+  color: #f5f0e3;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s;
+  padding: 0.5rem 0;
+}
+.nav-links a:hover,
+.nav-links a:active,
+.nav-links a:focus {
   color: var(--accent-secondary);
 }
 
+/* Hamburger menu styles */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.hamburger {
+  width: 28px;
+  height: 3px;
+  background: #f5f0e3;
+  display: block;
+  position: relative;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 28px;
+  height: 3px;
+  background: #f5f0e3;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.hamburger::before {
+  top: -8px;
+}
+.hamburger::after {
+  top: 8px;
+}
+
+/* Responsive Navbar */
+@media (max-width: 800px) {
+  .nav-toggle {
+    display: block;
+  }
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--accent);
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    display: none;
+  }
+  nav.open .nav-links {
+    display: flex;
+  }
+}
 
 /* Offset for fixed navbar */
 .hero,
@@ -130,22 +179,39 @@ section#services h2 {
   border: 1px solid #e6e6e6;
   border-radius: 12px;
   padding: 2rem;
-  transition: transform 0.3s, box-shadow 0.3s;
   background: #fff;
+  color: var(--text);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s, border 0.3s;
 }
 .service:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  background: var(--accent);
+  color: #f5f0e3;
+  box-shadow: 0 8px 32px rgba(30, 63, 47, 0.2);
+  border-color: var(--accent-secondary);
+}
+.service:hover h3 {
+  color: #f5f0e3;
 }
 .service h3 {
-  color: var(--accent);
-  font-family: 'Poppins', sans-serif;
-  margin-bottom: 0.5rem;
   transition: color 0.3s;
 }
-/* Service Card Title Hover */
-.service h3:hover {
-  color: var(--accent-secondary);
+
+/* Designed underline for key words */
+.keyword-underline {
+  position: relative;
+  color: inherit;
+  font-weight: 600;
+}
+.keyword-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 4px;
+  background: var(--accent-secondary);
+  border-radius: 2px;
+  z-index: -1;
 }
 
 /* Lead Magnet Section */
@@ -156,19 +222,16 @@ section#services h2 {
   text-align: center;
   margin: 0;
 }
-
 #lead-magnet h2 {
   font-family: 'Poppins', sans-serif;
   font-size: 2rem;
   margin-bottom: 1.5rem;
   color: #f5f0e3;
 }
-
 #lead-magnet .lead-note {
   font-size: 1.1rem;
   margin-bottom: 2rem;
 }
-
 .lead-form {
   display: flex;
   flex-direction: column;
@@ -177,7 +240,6 @@ section#services h2 {
   max-width: 400px;
   margin: 0 auto;
 }
-
 .lead-form input[type="email"] {
   padding: 0.7rem 1rem;
   border-radius: 8px;
@@ -194,7 +256,6 @@ section#services h2 {
   color: var(--accent-secondary);
   opacity: 1;
 }
-
 .lead-form .btn.secondary {
   background: var(--accent-secondary);
   color: #fff;
@@ -223,25 +284,21 @@ section#services h2 {
   padding: 0 1rem;
   text-align: left;
 }
-
 #about .about-image {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 #about .placeholder-image {
   width: 160px;
   height: 160px;
-  border-radius: 20px;      /* Rounded square */
+  border-radius: 20px;
   background: #ccc;
 }
-
 #about .about-text {
   flex: 1;
 }
-
 #about .about-text h2 {
   font-family: 'Poppins', sans-serif;
   font-size: 1.5rem;
@@ -272,7 +329,6 @@ section#services h2 {
   color: var(--accent);
   transform: scale(1.2);
 }
-/* Social Links: Instagram uses secondary accent on hover */
 .social-links a[href*="instagram"]:hover {
   color: var(--accent-secondary);
 }
@@ -287,6 +343,7 @@ footer {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
+  border-top: 4px solid var(--accent-secondary);
 }
 footer.visible {
   opacity: 1;
@@ -320,16 +377,9 @@ footer.visible {
   .hero-content h1 {
     font-size: 2rem;
   }
-  nav {
-    gap: 1rem;
-    font-size: 0.9rem;
-    padding: 0.8rem;
-  }
   .services {
     grid-template-columns: 1fr;
   }
-}
-@media (max-width: 600px) {
   #lead-magnet h2 {
     font-size: 1.3rem;
   }
@@ -340,4 +390,3 @@ footer.visible {
     max-width: 100%;
   }
 }
-
