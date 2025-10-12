@@ -23,6 +23,7 @@ nav {
   background: var(--accent);
   border-bottom: 1px solid #e6e6e6;
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 2rem;
   padding: 1rem;
@@ -35,17 +36,32 @@ nav a {
   color: #f5f0e3;
   font-weight: 600;
   transition: color 0.3s;
+  display: flex;
+  align-items: center;
 }
 
 nav a:hover {
   color: var(--accent-secondary);
 }
 
-/* Nav Link Active/Focus State */
+nav a.nav-logo {
+  padding: 0;
+  margin-right: 1.5rem;
+  background: none;
+  box-shadow: none;
+}
+
+nav a.nav-logo img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
 nav a:active,
 nav a:focus {
   color: var(--accent-secondary);
 }
+
 
 /* Offset for fixed navbar */
 .hero,
