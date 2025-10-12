@@ -5,6 +5,11 @@
   --background: #ffffff;
 }
 
+::selection {
+  background: var(--accent-secondary);
+  color: #f5f0e3;
+}
+
 body {
   margin: 0;
   font-family: 'Inter', 'Poppins', Arial, sans-serif;
@@ -33,7 +38,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  font-color: #f5f0e3;
+  color: #f5f0e3 !important;
   font-weight: 600;
   transition: color 0.3s;
   display: flex;
@@ -41,7 +46,7 @@ nav a {
 }
 
 nav a:hover {
-  color: var(--accent-secondary);
+  color: var(--accent-secondary) !important;
 }
 
 nav a.nav-logo {
