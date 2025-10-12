@@ -135,21 +135,25 @@ section#services h2 {
   padding: 0 1rem;
   text-align: left;
 }
+
 #about .about-image {
-  width: 120px;
-  height: 120px;
-  background: #eee;
-  border-radius: 50%;
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 #about .placeholder-image {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  border-radius: 20px;      /* Rounded square */
   background: #ccc;
 }
+
+#about .about-text {
+  flex: 1;
+}
+
 #about .about-text h2 {
   font-family: 'Poppins', sans-serif;
   font-size: 1.5rem;
